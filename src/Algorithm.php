@@ -50,7 +50,7 @@ class Algorithm
      * @param Polygon $clipping
      * @return Polygon
      */
-    public function getDifference(Polygon $subject, Polygon $clipping) : Polygon
+    public function getDifference(Polygon $subject, Polygon $clipping) : ?Polygon
     {
         return $this->compute($subject, $clipping, self::OPERATION_DIFFERENCE);
     }
@@ -70,7 +70,7 @@ class Algorithm
      * @param Polygon $clipping
      * @return Polygon
      */
-    public function getIntersection(Polygon $subject, Polygon $clipping) : Polygon
+    public function getIntersection(Polygon $subject, Polygon $clipping) : ?Polygon
     {
         return $this->compute($subject, $clipping, self::OPERATION_INTERSECTION);
     }
@@ -80,7 +80,7 @@ class Algorithm
      * @param Polygon $clipping
      * @return Polygon
      */
-    public function getXor(Polygon $subject, Polygon $clipping) : Polygon
+    public function getXor(Polygon $subject, Polygon $clipping) : ?Polygon
     {
         return $this->compute($subject, $clipping, self::OPERATION_XOR);
     }
@@ -91,7 +91,7 @@ class Algorithm
      * @param string $operation
      * @return Polygon
      */
-    protected function compute(Polygon $subject, Polygon $clipping, string $operation) : Polygon
+    protected function compute(Polygon $subject, Polygon $clipping, string $operation) : ?Polygon
     {
         // Test for 1 trivial result case
         if ($subject->ncontours() * $clipping->ncontours() == 0) {
