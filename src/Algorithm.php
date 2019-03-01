@@ -93,6 +93,8 @@ class Algorithm
      */
     protected function compute(Polygon $subject, Polygon $clipping, string $operation) : ?Polygon
     {
+        $result = null;
+
         // Test for 1 trivial result case
         if ($subject->ncontours() * $clipping->ncontours() == 0) {
             if ($operation == self::OPERATION_DIFFERENCE) {
